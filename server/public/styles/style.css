@@ -1,0 +1,42 @@
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+h1 {
+  background-color: teal;
+  margin-top: 0;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #cccaca;
+}
+
+#table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, tr, td, th {
+  border: 1px solid black;
+  width: 100px;
+  height: 20px;
+  text-align: left;
+}
+
+th {
+  height: 50px;
+  text-align: center;
+}
+tr:nth-child(even){
+  background-color: white;
+}
+#totalSalaryDiv {
+  float: left;
+}
