@@ -49,10 +49,13 @@ function submitEmployees(){
 }//end submitEmployees
 
 //creates new employee from constructor, pushes it into allEmployees array
+//also sends new employee to server
 function addEmployee(first, last, iD, title, salary){
   let newEmployee = new Employee(first, last, iD, title, salary);
   allEmployees.push(newEmployee);
   //console.log('in addEmployee, new employee: ' + newEmployee);
+
+  sendEmployeeToServer(newEmployee);
 
   return newEmployee;
 
@@ -169,6 +172,15 @@ function checkInputs(first, last, iD, title, salary){
   }
 }
 
+function sendEmployeeToServer(employeeIn){
+  $.ajax({
+    type: 'POST',
+    data: {employee: employeeIn},
+    url: '/addEmp'
+  }).done(function(response){
+    console.log(response);
+  })
+}
 
 
 //end
