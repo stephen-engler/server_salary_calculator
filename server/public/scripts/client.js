@@ -56,6 +56,7 @@ function addEmployee(first, last, iD, title, salary){
   //console.log('in addEmployee, new employee: ' + newEmployee);
 
   sendEmployeeToServer(newEmployee);
+  getEmployeesFromServer();
 
   return newEmployee;
 
@@ -94,7 +95,7 @@ function addToDom(newEmployee){
 
   $('#table').append(table);
 
-//this refers to all buttons
+ //this refers to all buttons
   // $('button').data('salary', newEmployee.salary);
 
   // console.log('in appendtoDom test table.data' + table.data('salary'));
@@ -179,7 +180,16 @@ function sendEmployeeToServer(employeeIn){
     url: '/addEmp'
   }).done(function(response){
     console.log(response);
-  })
+  });
+}
+
+function getEmployeesFromServer(){
+  $.ajax({
+    type: 'GET',
+    url: '/employee'
+  }).done(function(response){
+    console.log(response);
+  });
 }
 
 
